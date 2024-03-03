@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useOrganization, useSession, useUser } from "@clerk/nextjs";
-import classNames from "classnames";
-import { useEffect, useState } from "react";
-import { CopyIcon, Dot } from "../icons";
-import Image from "next/image";
-import "./prism.css";
+import { useOrganization, useSession, useUser } from '@clerk/nextjs';
+import classNames from 'classnames';
+import { useEffect, useState } from 'react';
+import { CopyIcon, Dot } from '../icons';
+import Image from 'next/image';
+import './prism.css';
 
 declare global {
   interface Window {
@@ -52,7 +52,9 @@ export function UserDetails() {
               </div>
               {user.firstName && (
                 <div className="px-8 py-2">
-                  <dt className="text-sm font-semibold mb-1">First Name</dt>
+                  <dt className="text-sm font-semibold mb-1">
+                    First Name
+                  </dt>
                   <dd className="mt-1 text-sm text-gray-600 sm:mt-0 sm:col-span-2">
                     {user.firstName}
                   </dd>
@@ -60,14 +62,18 @@ export function UserDetails() {
               )}
               {user.lastName && (
                 <div className="px-8 py-2">
-                  <dt className="text-sm font-semibold mb-1">Last Name</dt>
+                  <dt className="text-sm font-semibold mb-1">
+                    Last Name
+                  </dt>
                   <dd className="mt-1 text-sm text-gray-600 sm:mt-0 sm:col-span-2">
                     {user.lastName}
                   </dd>
                 </div>
               )}
               <div className="px-8 py-2">
-                <dt className="text-sm font-semibold mb-1">Email addresses</dt>
+                <dt className="text-sm font-semibold mb-1">
+                  Email addresses
+                </dt>
                 <dd className="mt-1 text-sm text-gray-600 sm:mt-0 sm:col-span-2">
                   {user.emailAddresses.map((email) => (
                     <div key={email.id} className="flex gap-2 mb-1">
@@ -83,7 +89,9 @@ export function UserDetails() {
               </div>
               {user.imageUrl && (
                 <div className="px-8 py-2">
-                  <dt className="text-sm font-semibold mb-1">Profile Image</dt>
+                  <dt className="text-sm font-semibold mb-1">
+                    Profile Image
+                  </dt>
                   <dd className="mt-1 text-sm text-gray-600 sm:mt-0 sm:col-span-2">
                     <img
                       src={user.imageUrl}
@@ -159,7 +167,9 @@ export function SessionDetails() {
                 </dd>
               </div>
               <div className="px-8 py-2">
-                <dt className="text-sm font-semibold mb-1">Last Active</dt>
+                <dt className="text-sm font-semibold mb-1">
+                  Last Active
+                </dt>
                 <dd className="mt-1 text-sm text-gray-600 sm:mt-0 sm:col-span-2">
                   {session.lastActiveAt.toLocaleString()}
                 </dd>
@@ -213,7 +223,9 @@ export function OrgDetails() {
             <div className="pb-6 max-h-96">
               <dl>
                 <div className="px-8 py-2">
-                  <dt className="text-sm font-semibold">Organization ID</dt>
+                  <dt className="text-sm font-semibold">
+                    Organization ID
+                  </dt>
                   <dd className="mt-1 text-sm text-gray-600 sm:mt-0 sm:col-span-2 flex gap-2">
                     {organization.id}
                     <CopyButton text={organization.id} />
@@ -226,7 +238,9 @@ export function OrgDetails() {
                   </dd>
                 </div>
                 <div className="px-8 py-2">
-                  <dt className="text-sm font-semibold mb-1">Members</dt>
+                  <dt className="text-sm font-semibold mb-1">
+                    Members
+                  </dt>
                   <dd className="mt-1 text-sm text-gray-600 sm:mt-0 sm:col-span-2">
                     {organization.membersCount}
                   </dd>
@@ -240,7 +254,9 @@ export function OrgDetails() {
                   </dd>
                 </div>
                 <div className="px-8 py-2">
-                  <dt className="text-sm font-semibold mb-1">Image</dt>
+                  <dt className="text-sm font-semibold mb-1">
+                    Image
+                  </dt>
                   <dd className="mt-1 text-sm text-gray-600 sm:mt-0 sm:col-span-2">
                     <Image
                       className="rounded"
@@ -281,10 +297,11 @@ function Toggle(props: {
         disabled={props.disabled}
         onClick={props.onChange}
         className={classNames({
-          "rounded-l-lg py-2 px-4 border-solid border border-gray-300 transition text-sm font-semibold":
+          'rounded-l-lg py-2 px-4 border-solid border border-gray-300 transition text-sm font-semibold':
             true,
-          "bg-gray-100": !props.checked,
-          "bg-gray-50 text-gray-500 cursor-not-allowed": props.disabled,
+          'bg-gray-100': !props.checked,
+          'bg-gray-50 text-gray-500 cursor-not-allowed':
+            props.disabled,
         })}
       >
         List
@@ -293,10 +310,11 @@ function Toggle(props: {
         disabled={props.disabled}
         onClick={props.onChange}
         className={classNames({
-          "rounded-r-lg py-2 px-4 border-solid border border-gray-300 -ml-[1px] transition text-sm font-semibold":
+          'rounded-r-lg py-2 px-4 border-solid border border-gray-300 -ml-[1px] transition text-sm font-semibold':
             true,
-          "bg-gray-100": props.checked,
-          "bg-gray-50 text-gray-500 cursor-not-allowed": props.disabled,
+          'bg-gray-100': props.checked,
+          'bg-gray-50 text-gray-500 cursor-not-allowed':
+            props.disabled,
         })}
       >
         JSON
@@ -319,7 +337,8 @@ function CopyButton(props: { text: string }) {
     <>
       <button
         onClick={() => {
-          if (navigator.clipboard) navigator.clipboard.writeText(props.text);
+          if (navigator.clipboard)
+            navigator.clipboard.writeText(props.text);
           setTooltipShown(true);
         }}
       >
@@ -328,10 +347,10 @@ function CopyButton(props: { text: string }) {
 
       <div
         className={classNames({
-          "absolute z-10 bg-gray-900 text-white rounded p-2 text-xs transition-all ease-in-out translate-x-60 shadow-sm shadow-gray-500":
+          'absolute z-10 bg-gray-900 text-white rounded p-2 text-xs transition-all ease-in-out translate-x-60 shadow-sm shadow-gray-500':
             true,
-          "translate-y-10 opacity-0": !tooltipShown,
-          "translate-y-6": tooltipShown,
+          'translate-y-10 opacity-0': !tooltipShown,
+          'translate-y-6': tooltipShown,
         })}
       >
         Copied!

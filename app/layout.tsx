@@ -3,24 +3,24 @@ import {
   OrganizationSwitcher,
   SignedIn,
   UserButton,
-} from "@clerk/nextjs";
-import "./globals.css";
-import { Inter } from "next/font/google";
-import Image from "next/image";
-import Link from "next/link";
-import Script from "next/script";
-import { Docs, Github, Times } from "./icons";
-import { Twitter } from "./icons";
-import { Discord } from "./icons";
-import { Metadata } from "next";
+} from '@clerk/nextjs';
+import './globals.css';
+import { Inter } from 'next/font/google';
+import Image from 'next/image';
+import Link from 'next/link';
+import Script from 'next/script';
+import { Docs, Github, Times } from './icons';
+import { Twitter } from './icons';
+import { Discord } from './icons';
+import { Metadata } from 'next';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Next.js Clerk Template",
+  title: 'Next.js Clerk Template',
   description:
-    "A simple and powerful Next.js template featuring authentication and user management powered by Clerk.",
-  openGraph: { images: ["/og.png"] },
+    'A simple and powerful Next.js template featuring authentication and user management powered by Clerk.',
+  openGraph: { images: ['/og.png'] },
 };
 
 export default function RootLayout({
@@ -32,24 +32,29 @@ export default function RootLayout({
     <html lang="en">
       <ClerkProvider
         appearance={{
-          variables: { colorPrimary: "#000000" },
+          variables: { colorPrimary: '#000000' },
           elements: {
             formButtonPrimary:
-              "bg-black border border-black border-solid hover:bg-white hover:text-black",
+              'bg-black border border-black border-solid hover:bg-white hover:text-black',
             socialButtonsBlockButton:
-              "bg-white border-gray-200 hover:bg-transparent hover:border-black text-gray-600 hover:text-black",
-            socialButtonsBlockButtonText: "font-semibold",
+              'bg-white border-gray-200 hover:bg-transparent hover:border-black text-gray-600 hover:text-black',
+            socialButtonsBlockButtonText: 'font-semibold',
             formButtonReset:
-              "bg-white border border-solid border-gray-200 hover:bg-transparent hover:border-black text-gray-500 hover:text-black",
+              'bg-white border border-solid border-gray-200 hover:bg-transparent hover:border-black text-gray-500 hover:text-black',
             membersPageInviteButton:
-              "bg-black border border-black border-solid hover:bg-white hover:text-black",
-            card: "bg-[#fafafa]",
+              'bg-black border border-black border-solid hover:bg-white hover:text-black',
+            card: 'bg-[#fafafa]',
           },
         }}
       >
-        <body className={`${inter.className} min-h-screen flex flex-col`}>
+        <body
+          className={`${inter.className} min-h-screen flex flex-col`}
+        >
           <header className="flex items-center h-20 gap-4 px-4 border-b border-black border-solid sm:px-8 border-opacity-20">
-            <Link href="/" className="flex items-center h-20 gap-2 sm:gap-4">
+            <Link
+              href="/"
+              className="flex items-center h-20 gap-2 sm:gap-4"
+            >
               <Image
                 src="/clerk.svg"
                 alt="Clerk Logo"
@@ -104,7 +109,10 @@ export default function RootLayout({
                 <div className="m-auto">
                   <Docs />
                 </div>
-                <span className="hidden sm:inline"> Visit Clerk Docs</span>
+                <span className="hidden sm:inline">
+                  {' '}
+                  Visit Clerk Docs
+                </span>
                 <span className="inline sm:hidden"> Docs</span>
               </a>
               <a
@@ -114,7 +122,10 @@ export default function RootLayout({
                 <div className="m-auto">
                   <Github />
                 </div>
-                <span className="hidden sm:inline"> View on Github</span>
+                <span className="hidden sm:inline">
+                  {' '}
+                  View on Github
+                </span>
               </a>
               <a
                 className="flex flex-col justify-center p-2 hover:underline"
@@ -133,8 +144,8 @@ export default function RootLayout({
         </body>
       </ClerkProvider>
 
-      <Script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-core.min.js" />
-      <Script src="https://cdn.jsdelivr.net/npm/prismjs@1/plugins/autoloader/prism-autoloader.min.js" />
+      <Script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-core.min.js" />
+      <Script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/plugins/autoloader/prism-autoloader.min.js" />
     </html>
   );
 }
