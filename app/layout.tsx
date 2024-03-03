@@ -71,6 +71,7 @@ export default function RootLayout({
                 priority
               />
             </Link>
+            <p>Staging</p>
             <div className="grow" />
             <SignedIn>
               <div className="hidden sm:block">
