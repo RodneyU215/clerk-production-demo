@@ -46,6 +46,11 @@ export default function RootLayout({
             card: 'bg-[#fafafa]',
           },
         }}
+        localization={{
+          unstable__errors: {
+            not_allowed_access: "You don't have access to this page",
+          },
+        }}
       >
         <body
           className={`${inter.className} min-h-screen flex flex-col`}
