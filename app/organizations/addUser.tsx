@@ -22,7 +22,10 @@ export default function AddUser({
       />
       <button
         className="btn btn-primary ml-4"
-        onClick={() => addUserToOrg(email, orgId, userId)}
+        onClick={async () => {
+          await addUserToOrg(email, orgId, userId);
+          setEmail('');
+        }}
       >
         Add
       </button>
